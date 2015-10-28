@@ -3,6 +3,6 @@ extends layout
 block content
  div(ng-controller="Controller" )
   h1 {{title}}
-  p(ng-repeat="poema in poemas")
-   p {{poema.title}} 
+  ul
+   li(ng-repeat="poema in poemas") {{poema.title}}  
  
