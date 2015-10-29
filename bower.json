@@ -1,0 +1,17 @@
+{
+  "name": "Trovador",
+  "description": "Trovador",
+  "main": "app.js",
+  "authors": [
+    "<fabriciodacunhasantos@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Trovador",
+    "poesia",
+    "poemas"
+  ],
+  "homepage": "https://github.com/ale-php/trovador",
+  "moduleType": [],
+  "private": true
+}
