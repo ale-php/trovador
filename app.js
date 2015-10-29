@@ -18,7 +18,8 @@ var dbporta = process.env.OPENSHIFT_MONGODB_DB_PORT || 27017
 mongoose.connect('mongodb://'+host+':'+dbporta+'/blog');
 
 var poemas = require('./routes/poemas');
-var routes = require('./routes/index');
+var categorias = require('./routes/categorias');
+
 
 
 var app = express();
@@ -39,8 +40,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/', routes);
+
 app.use('/poemas', poemas);
+app.use('/categorias', categorias);
 
  var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1" ;
  var port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;

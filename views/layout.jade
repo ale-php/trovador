@@ -53,7 +53,11 @@ html(ng-app="app")
       a.btn.btn-primary.btn-xs(href="https://www.facebook.com/ale.trovador/?ref=hl") Facebook
     .col-xs-12.col-sm-12#conteudo-dow
      small 
-      i "Não existe paixão que sempre dure, e nem amor que nunca acabe"     
+      i "Não existe paixão que sempre dure, e nem amor que nunca acabe"    
+     div(ng-controller="categoria")
+      ul(ng-repeat="categoria in categorias")
+       li 
+        a(href="/ver/{{categoria.name}} ") {{categoria.name}}  
 
    
 
@@ -67,4 +71,6 @@ html(ng-app="app")
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
   script(src='/js/bootstrap.min.js')
   script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
-  script(src='/js/poemas.js')
+  script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js")
+  script(src='/js/crtpoemas.js')
+  script(src='/js/crtcategorias.js')
