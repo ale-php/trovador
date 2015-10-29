@@ -1,0 +1,47 @@
+body{
+	background-color:#363636;
+
+}
+
+.layout{
+		min-height: 500px;
+}
+
+@media screen and (min-width: 200px) and (max-width: 900px) {
+
+
+.layout{
+	margin-top: 10%;
+}
+
+}
+
+
+@media screen and (min-width: 1024px) {
+
+.layout{
+	margin-top: 5%;
+}
+
+}
+
+
+#conteudo{
+	background-color:#ffffff;
+}
+
+#conteudo-dow{
+	background-color:#ffffff;
+	margin-top: 5%;
+} 
+
+#posts{
+	margin-top: 5%;
+	border:1px solid #000;
+}
+
+#footer{
+	height: 80px;
+	background-color: #ccc;
+	text-align: center;
+}

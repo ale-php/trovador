@@ -44,6 +44,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/poemas', poemas);
 app.use('/categorias', categorias);
 
+
+app.get("/",function(req,res){
+
+	res.render("poemas");
+})
+
  var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1" ;
  var port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
