@@ -1,5 +1,8 @@
 // grab the things we need
 var mongoose = require('mongoose');
+var Promise = require('bluebird');
+//Preparando o mongoose, que é baseado em callbacks, para ser usado com o bluebird, que é uma api de Promises
+Promise.promisifyAll(mongoose);
 var Schema = mongoose.Schema;
 
 

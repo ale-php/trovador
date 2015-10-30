@@ -7,7 +7,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');	// usa o modulo mongoose
+//Biblioteca de promises
+var Promise = require('bluebird');
 
+//Preparando o mongoose, que é baseado em callbacks, para ser usado com o bluebird, que é uma api de Promises
+Promise.promisifyAll(mongoose);
 //Connection URL: mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
 
 // verifica se esta on se não usa host local
@@ -20,6 +24,9 @@ mongoose.connect('mongodb://'+host+':'+dbporta+'/blog');
 var poemas = require('./routes/poemas');
 var categorias = require('./routes/categorias');
 
+
+var Categorias = require('./models/mcategorias');
+var Poemas = require('./models/mpoemas');
 
 
 var app = express();
@@ -46,8 +53,14 @@ app.use('/categorias', categorias);
 
 
 app.get("/",function(req,res){
-
-	res.render("poemas");
+   Promise.all([Categorias.findAsync({}), Poemas.findAsync({})])
+        .then(function(result){
+            var params = {
+                categorias : result[0],
+                poemas: result[1]
+            }
+	        res.render("poemas", params);
+        })
 })
 
  var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1" ;
