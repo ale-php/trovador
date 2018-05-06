@@ -5,11 +5,7 @@ import Drawer from 'preact-material-components/Drawer';
 import List from 'preact-material-components/List';
 import Dialog from 'preact-material-components/Dialog';
 import Switch from 'preact-material-components/Switch';
-import 'preact-material-components/Switch/style.css';
-import 'preact-material-components/Dialog/style.css';
-import 'preact-material-components/Drawer/style.css';
-import 'preact-material-components/List/style.css';
-import 'preact-material-components/Toolbar/style.css';
+
 // import style from './style';
 
 export default class Header extends Component {
@@ -54,20 +50,23 @@ export default class Header extends Component {
 	render() {
 		return (
 			<div>
-				<Toolbar className="toolbar">
-					<Toolbar.Row>
+				<Toolbar className="toolbar" >
+					<Toolbar.Row className="mdc-theme--dark">
 						<Toolbar.Section align-start>
 							<Toolbar.Icon menu onClick={this.openDrawer}>
 								menu
 							</Toolbar.Icon>
-							<Toolbar.Title>Preact app</Toolbar.Title>
+							<Toolbar.Title>O Trovador</Toolbar.Title>
 						</Toolbar.Section>
-						<Toolbar.Section align-end onClick={this.openSettings}>
-							<Toolbar.Icon>settings</Toolbar.Icon>
+						<Toolbar.Section align-end >
+							<Toolbar.Icon>twitter</Toolbar.Icon>
 						</Toolbar.Section>
 					</Toolbar.Row>
 				</Toolbar>
 				<Drawer.TemporaryDrawer ref={this.drawerRef}>
+				<Drawer.DrawerHeader className="mdc-theme--dark" item-aling-center>
+            O Trovador
+          </Drawer.DrawerHeader>
 					<Drawer.DrawerContent>
 						<Drawer.DrawerItem onClick={this.goHome}>
 							<List.ItemGraphic>home</List.ItemGraphic>
@@ -79,17 +78,6 @@ export default class Header extends Component {
 						</Drawer.DrawerItem>
 					</Drawer.DrawerContent>
 				</Drawer.TemporaryDrawer>
-				<Dialog ref={this.dialogRef}>
-					<Dialog.Header>Settings</Dialog.Header>
-					<Dialog.Body>
-						<div>
-							Enable dark theme <Switch onClick={this.toggleDarkTheme} />
-						</div>
-					</Dialog.Body>
-					<Dialog.Footer>
-						<Dialog.FooterButton accept>okay</Dialog.FooterButton>
-					</Dialog.Footer>
-				</Dialog>
 			</div>
 		);
 	}

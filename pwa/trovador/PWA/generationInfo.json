@@ -1,0 +1,9 @@
+{
+    "generationTool": "pwabuilder",
+    "generationToolVersion": "2.0.3-rc.0",
+    "platformId": "web",
+    "platformPackage": "pwabuilder-web",
+    "platformVersion": "2.0.0-rc.2",
+    "generatedFrom": "CLI",
+    "generationDate": "2018-05-06 22:51:50 Z"
+}
